@@ -27,15 +27,28 @@ var promise = new Promise(function(resolve, reject) {
     }, 3000);
 });
 
+// handler reject promise by using second argument
+// promise
+//     .then(function(text) {
+//         return text;
+//     }, function(err) {
+//         // handler error of reject
+//         console.log(err.code, err.message);
+//     })
+//     .then(function(newText) {
+//         console.log(newText);
+//     });
+
+// handler reject promise by using catch
 promise
     .then(function(text) {
         return text;
-    }, function(err) {
-        // handler error of reject
-        console.log(err.code, err.message);
     })
     .then(function(newText) {
         console.log(newText);
+    })
+    .catch(function(err) {
+        console.log(err.code, err.message);
     });
 
 console.log('This is executed right after setTimeout()');
